@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>GreenStock - Usuários</title>
+    <meta name="description" content="Cadastro de usuários do sistema GreenStock">
+    <link rel="stylesheet" th:href="@{/tela_usuario/style-usuario.css}">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="user-container">
+
+        <header class="top-nav-bar">
+            <img th:src="@{/tela_usuario/img/icone.png}" alt="Logo GreenStock" class="nav-logo">
+            
+            <nav class="nav-links">
+                <a href="#" class="nav-button nav-active">USUÁRIOS</a>
+                <a th:href="@{/produtos}" class="nav-button">PRODUTOS</a>
+                <a href="/Tela de Fornecedores/forn.html" class="nav-button">FORNECEDORES</a>
+                <a href="/Tela de Entradas/ent.html" class="nav-button">ENTRADAS</a>
+                <a href="/Tela de Saídas/sai.html" class="nav-button">SAÍDAS</a>
+                <a href="/Tela de Custos/cus.html" class="nav-button">CUSTOS</a>
+            </nav>
+            <a class="sair-btn" href="../tela_login/index.html">
+                <img th:src="@{/tela_usuario/img/saida.png}" alt="Sair" class="sair-img" >
+            </a>
+        </header>
+        
+        <main class="main-content">
+
+            <section class="user-info-panel">
+                <h2>Informações do Usuário</h2>
+
+                <form class="user-form" method="post" th:object="${usuario}">
+
+                    <input type="hidden" th:field="*{id_usuario}">
+
+                    <label for="userName">Nome (Login)</label>
+                    <input type="text" id="userName" th:field="*{login}" placeholder="Digite o nome..." class="input-field" required>
+
+                    <label for="userPassword">Senha</label>
+                    <input type="password" id="userPassword" th:field="*{senha}" placeholder="Digite a senha..." class="input-field">
+
+                    <label for="userPermission">Permissão</label>
+                    <select id="userPermission" th:field="*{permissoes}" class="input-field select-field">
+                        <option value="" disabled selected>Selecione a Permissão</option>
+                        <option value="adm">Adm</option>
+                        <option value="user">User</option>
+                        <option value="dev">Dev</option>
+                    </select>
+
+                    <div class="action-buttons">
+                        <button type="submit" th:formaction="@{/usuario/salvar}" class="btn btn-1 btn-sep icon-plus">Adicionar</button>
+                        <button type="submit" th:formaction="@{/usuario/editar}" class="btn btn-2 btn-sep icon-pencil">Editar</button>
+                        <button type="submit" th:formaction="@{/usuario/deletar}" class="btn btn-3 btn-sep icon-trash">Deletar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="user-list-panel">
+                <h2>Lista de Usuários</h2>
+
+                <form th:action="@{/usuario}" method="get">
+
+                    <div class="search-box">
+                        <button type="submit" style="border: none; background: none; cursor: pointer;">
+                            <img th:src="@{/tela_usuario/img/lupa.png}" alt="Ícone de Procura" class="search-icon" />
+                        </button>
+
+                        <input type="text"
+                               name="login"
+                               th:value="${termoPesquisado}"
+                               placeholder="Procurar usuário..."
+                               class="search-input">
+                    </div>
+
+                </form>
+
+                <div class="users-table-container">
+                    <div class="table-header">
+                        <span class="col-id">ID</span>
+                        <span class="col-nome">Nome</span>
+                        <span class="col-permissão">Permissão</span>
+                    </div>
+
+                    <div th:each="u : ${usuarios}" class="table-row">
+                        <span class="col-id" th:text="${u.id_usuario}"></span>
+                        <span class="col-nome" th:text="${u.login}"></span>
+                        <span class="col-permissão" th:text="${u.permissoes}"></span>
+
+<!--                    <a th:href="@{|/usuario/editar/${u.id_usuario}|}">Editar</a>-->
+<!--                    <a th:href="@{|/usuario/deletar/${u.id_usuario}|}">Excluir</a>-->
+                    </div>
+                    
+                </div>
+            </section>
+
+        </main>
+
+        <a href="#" class="help-button" title="Precisa de ajuda?">
+        !
+        </a>
+    </div>
+
+<!--    <div class="popup-overlay" id="exit-popup">-->
+<!--        <div class="popup-box">-->
+<!--            -->
+<!--            <div class="popup-header">-->
+<!--                <img class="icon-warning" th:src="@{/tela_usuario/img/icone_aviso.png}" alt="Ícone de Aviso" />-->
+<!--                <div class="title-text">Deseja realmente sair?</div>-->
+<!--            </div>-->
+
+<!--            <div class="message-body">-->
+<!--                <p>Suas alterações não salvas podem ser perdidas.<br/>Confirme se deseja encerrar <strong>GreenStock</strong></p>-->
+<!--            </div>-->
+
+<!--            <div class="action-buttons-popup">-->
+<!--                <button class="btn-popup btn-cancel" id="btn-cancel">-->
+<!--                    <img th:src="@{/tela_usuario/img/icone_cancelar.png}" alt="Cancelar" class="btn-icon" />-->
+<!--                    Cancelar-->
+<!--                </button>-->
+<!--                -->
+<!--                <a href="/Tela de Login/index.html" class="btn-popup btn-confirm">-->
+<!--                    <img th:src="@{/tela_usuario/img/sair.png}" alt="Sair" class="btn-icon" />-->
+<!--                    Sair-->
+<!--                </a>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+    </body>
+</html>

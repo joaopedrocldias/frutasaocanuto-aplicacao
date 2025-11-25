@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>GreenStock - Fornecedores</title>
+    <meta name="description" content="Cadastro de fornecedores do sistema GreenStock">
+    <link rel="stylesheet" href="../../static/style-fornecedores.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="forn-container">
+
+        <header class="top-nav-bar">
+            <img src="img/icone.png" alt="Logo GreenStock" class="nav-logo" />
+            
+            <nav class="nav-links">
+                <a href="/Tela de Usuário/user.html" class="nav-button">USUÁRIOS</a>
+                <a href="/Tela de Produtos/prod.html" class="nav-button">PRODUTOS</a>
+                <a href="#" class="nav-button  nav-active">FORNECEDORES</a>
+                <a href="/Tela de Entradas/ent.html" class="nav-button">ENTRADAS</a>
+                <a href="/Tela de Saídas/sai.html" class="nav-button">SAÍDAS</a>
+                <a href="/Tela de Custos/cus.html" class="nav-button">CUSTOS</a>
+            </nav>
+            <a class="sair-btn" href="/Tela de Login/index.html">
+                 <img src="img/saida.png" alt="Sair" class="sair-img">
+            </a>
+        </header>
+        
+        <main class="main-content">
+            
+            <section class="forn-info-panel">
+                <h2>Informações do Fornecedor</h2>
+                
+                <form class="forn-form">
+                    <label for="fornName">Nome</label>
+                    <input type="text" id="userName" placeholder="Digite o nome..." class="input-field">
+                    
+                    <label for="fornTel">Telefone</label>
+                    <input type="tel" id="fornTel" placeholder="Digite o telefone..." class="input-field">
+
+                    <label for="fornRua">Rua</label>
+                    <input type="text" id="fornTel" placeholder="Digite a rua..." class="input-field">
+
+                    <label for="fornBairro">Bairro</label>
+                    <input type="text" id="fornTel" placeholder="Digite o bairro..." class="input-field">
+                    
+                </form>
+
+                <div class="action-buttons">
+
+                    <button class="btn btn-1 btn-sep icon-plus">Adicionar</button>
+                    <button class="btn btn-2 btn-sep icon-pencil">Editar</button>
+                    <button class="btn btn-3 btn-sep icon-trash">Deletar</button>
+                </div>
+            </section>
+
+            <section class="forn-list-panel">
+                <h2>Lista de Fornecedores</h2>
+                
+                <div class="search-box">
+                    <img src="/Tela de Fornecedores/img/lupa.png" alt="Ícone de Procura" class="search-icon" />
+                    <input type="text" placeholder="Procurar" class="search-input">
+                </div>
+
+                <div class="forn-table-container">
+                    <div class="table-header">
+                        <span class="col-id">ID</span>
+                        <span class="col-name">Nome</span>
+                        <span class="col-tel">Telefone</span>
+                        <span class="col-tel">Rua</span>
+                        <span class="col-tel">Bairro</span>
+                    </div>
+                    <div class="table-row">
+                        </div>
+                    
+                </div>
+            </section>
+
+        </main>
+
+        <a href="#" class="help-button" title="Precisa de ajuda?">
+        !
+         </a>
+    </div>
+</body>
+</html>

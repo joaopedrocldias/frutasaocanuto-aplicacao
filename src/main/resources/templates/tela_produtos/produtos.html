@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-BR" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>GreenStock - Produtos</title>
+    <meta name="description" content="Cadastro de produtos do sistema GreenStock">
+    <link rel="stylesheet" th:href="@{/tela_produtos/style-produto.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="prod-container">
+
+        <header class="top-nav-bar">
+            <img th:src="@{/tela_produtos/img/icone.png}" alt="Logo GreenStock" class="nav-logo" />
+            
+            <nav class="nav-links">
+                <a href="/Tela de Usuário/user.html" class="nav-button ">USUÁRIOS</a>
+                <a href="#" class="nav-button nav-active">PRODUTOS</a>
+                <a href="/Tela de Fornecedores/forn.html" class="nav-button">FORNECEDORES</a>
+                <a href="/Tela de Entradas/ent.html" class="nav-button">ENTRADAS</a>
+                <a href="/Tela de Saídas/sai.html" class="nav-button">SAÍDAS</a>
+                <a href="/Tela de Custos/cus.html" class="nav-button">CUSTOS</a>
+            </nav>
+            <a class="sair-btn" href="/Tela de Login/index.html">
+                 <img th:src="@{/tela_produtos/img/saida.png}" alt="Sair" class="sair-img">
+            </a>
+        </header>
+        
+        <main class="main-content">
+            
+            <section class="prod-info-panel">
+                <h2>Informações do Produto</h2>
+                
+                <form class="prod-form" method="post" th:object="${produtos}">
+                    <label for="prodName">Nome</label>
+                    <input type="text" th:field="*{nome}" id="prodName" placeholder="Digite o nome..." class="input-field">
+                    
+                    <label for="prodCategoria">Categoria</label>
+                    <select id="prodCategoria" class="input-field select-field">
+                        <option value="" disabled selected>Selecione a Categoria</option>
+                        <option value="frutas">Frutas</option>
+                        <option value="legumes">Legumes</option>
+                        <option value="verduras">Verduras</option>
+                        <option value="frutas">Bebidas</option>
+                        <option value="legumes">Outros</option>
+                    </select>
+
+                    <label for="prodUnidade">Unidade de Medida</label>
+                    <select id="prodUnidade" class="input-field select-field">
+                        <option value="" disabled selected>Selecie a Unidade</option>
+                        <option value="kg">Kilogramas</option>
+                        <option value="un">Unidades</option>
+                        <option value="g">Gramas</option>
+                        <option value="dz">Dúzias</option>
+                        <option value="cx">Caixas</option>
+                        <option value="bd">Bandejas</option>
+                        <option value="sc">Sacos</option>
+                    </select>
+                    
+                    <div class="action-buttons">
+
+                        <button class="btn btn-1 btn-sep icon-plus">Adicionar</button>
+                        <button class="btn btn-2 btn-sep icon-pencil">Editar</button>
+                        <button class="btn btn-3 btn-sep icon-trash">Deletar</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="prod-list-panel">
+                <h2>Lista de Produtos</h2>
+                
+                <div class="search-controls">
+                        
+                        <div class="search-box">
+                            <img src="/Tela de Produtos/img/lupa.png" alt="Ícone de Procura" class="search-icon" />
+                            <input type="text" placeholder="Procurar" class="search-input">
+                        </div>
+                        
+                        <div class="search-box search-box-2">
+                            <img src="/Tela de Produtos/img/lupa.png" alt="Ícone de Filtro" class="search-icon" />
+                            <input type="text" placeholder="Categoria" class="search-input">
+                        </div>
+                        
+                    </div>
+                
+
+                <div class="prod-table-container">
+                    <div class="table-header">
+                        <span class="col-id">ID</span>
+                        <span class="col-name">Nome</span>
+                        <span class="col-categ">Categoria</span>
+                        <span class="col-categ">Unidade de Medida</span>
+                        <span class="col-categ">Estoque</span>
+                    </div>
+                    <div class="table-row">
+                        </div>
+                    
+                </div>
+            </section>
+
+        </main>
+
+        <a href="#" class="help-button" title="Precisa de ajuda?">
+        !
+         </a>
+    </div>
+</body>
+</html>

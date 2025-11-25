@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>GreenStock - Saídas</title>
+    <meta name="description" content="Cadastro de saídas do sistema GreenStock">
+    <link rel="stylesheet" href="../../static/style-saida.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
+</head>
+<body>
+    <div class="sai-container">
+
+        <header class="top-nav-bar">
+            <img src="img/icone.png" alt="Logo GreenStock" class="nav-logo" />
+            
+            <nav class="nav-links">
+                <a href="/Tela de Usuário/user.html" class="nav-button">USUÁRIOS</a>
+                <a href="/Tela de Produtos/prod.html" class="nav-button">PRODUTOS</a>
+                <a href="/Tela de Fornecedores/forn.html" class="nav-button">FORNECEDORES</a>
+                <a href="/Tela de Entradas/ent.html" class="nav-button">ENTRADAS</a>
+                <a href="#" class="nav-button nav-active">SAÍDAS</a>
+                <a href="/Tela de Custos/cus.html" class="nav-button">CUSTOS</a>
+            </nav>
+            <a class="sair-btn" href="/Tela de Login/index.html">
+                 <img src="/Tela de Saídas/img/saida.png" alt="Sair" class="sair-img">
+            </a>
+        </header>
+        
+        <main class="main-content">
+            
+            <section class="sai-info-panel">
+                <h2>Informações de Saída</h2>
+                
+                <form class="sai-form">
+                    <label for="saiID">ID Produto</label>
+                    <input type="number" id="saiID" placeholder="Digite o ID..." class="input-field">
+                    
+                    <label for="saiQtd">Quantidade</label>
+                    <input type="number" id="saiQtd" placeholder="Digite a quantidade..." class="input-field">
+
+                    <label for="saiResp">Responsável</label>
+                    <select id="saiResp" class="input-field select-field">
+                        <option value="" disabled selected>Selecione um Responsável</option>
+                        <option value="x">x</option>
+                        <option value="y">y</option>
+                        <option value="z">z</option>
+                    </select>
+                    
+                </form>
+
+                <div class="action-buttons">
+
+                    <button class="btn btn-1 btn-sep icon-plus">Adicionar</button>
+                    <button class="btn btn-2 btn-sep icon-pencil">Editar</button>
+                    <button class="btn btn-3 btn-sep icon-trash">Deletar</button>
+                </div>
+            </section>
+
+            <section class="sai-list-panel">
+                <h2>Lista de Saídas</h2>
+                
+                <div class="search-box">
+                    <img src="/Tela de Saídas/img/lupa.png" alt="Ícone de Procura" class="search-icon" />
+                    <input type="text" placeholder="Procurar" class="search-input">
+                </div>
+
+                <div class="sai-table-container">
+                    <div class="table-header">
+                        <span class="col-id">ID Saídas</span>
+                        <span class="col-nome">Produto</span>
+                        <span class="col-resp">Quantidade</span>
+                        <span class="col-resp">Resonsável</span>
+                        <span class="col-resp">Data Saída</span>
+                    </div>
+                    <div class="table-row">
+                        </div>
+                    
+                </div>
+            </section>
+
+        </main>
+
+        <a href="#" class="help-button" title="Precisa de ajuda?">
+        !
+         </a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,242 @@
+/* Reset básico para melhor consistência */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif; /* Usando Inter como base */
+}
+
+/* 1. Estilização do Fundo */
+.background-gradient {
+    width: 100vw;
+    height: 100vh;
+    /* Seu gradiente original */
+    background: linear-gradient(90deg, #86D571 0%, #2ABDA2 50%, #0B769D 100%);
+    
+    /* Usa Flexbox para centralizar o contêiner de login */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: px;
+}
+
+/* 2. Contêiner principal de login */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+/* 3. A Caixa de Login (o elemento com blur) */
+.login-box {
+    /* Dimensões aproximadas do seu código original */
+    width: 900px; 
+    padding: 80px 100px;
+    
+    /* Efeitos de 'Glassmorphism' que você estava usando */
+    background: rgba(255, 255, 255, 0.25); /*Transparência */
+    border-radius: 80px;
+    border: 4px rgba(255, 255, 255, 0.15) solid;
+
+    /* Flexbox para organizar o conteúdo interno (título, form) */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Espaço entre o logo e o formulário */
+}
+
+/* 4. Estilização do Logo */
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 90px;
+    margin-bottom: 10px; /* Adiciona espaço abaixo do logo */
+    
+}
+
+.logo-green {
+    color: black;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.02);
+}
+
+.logo-stock {
+    color: #00FF8A;
+    text-shadow: 0px 4px 4px rgba(0, 100, 1, 1);
+}
+
+/* 5. Estilização do Formulário */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha título do formulário à esquerda */
+    width: 100%; /* Ocupa a largura total da caixa de login */
+    max-width: 550px; /* Limita a largura dos campos */
+    gap: 15px; /* Espaço entre os elementos do formulário */
+}
+
+.input-label {
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 20px;
+    text-shadow: 1px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.login-input {
+    width: 100%;
+    height: 78px;
+    padding: 0 20px;
+    background: white;
+    border-radius: 15px;
+    border: none;
+    font-size: 20px;
+    color: #777474;
+    outline: none; /* Remove o contorno padrão ao focar */
+}
+
+.login-input::placeholder {
+    color: #242323;
+    opacity: 0.7;
+}
+
+/* 6. Estilização do Botão */
+.login-button {
+    /* Dimensões adaptadas para o layout Flexbox */
+    width: 100%;
+    /* Altura reduzida para se adequar ao padding moderno */
+    height: 100px; 
+    margin-top: 50px; 
+    
+    /* Estilos base da classe .btn */
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px; 
+    border-radius: 100px;
+    transition: all .2s;
+    
+    /* Garante que o :after e o transform funcionem */
+    position: relative; 
+    display: inline-block;
+    
+    /* Estilos do botão GreenStock (simulando .btn-white com a cor do tema) */
+    background-color: #00ED5B;
+    color: white; 
+    font-size: 32px; /* Tamanho ajustado para caber no padding */
+    font-weight: 900;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+
+    /* PROPRIEDADE PARA A SOMBRA NA PALAVRA "Login" */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.20);
+}
+
+/* Efeitos de Hover e Active */
+.login-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4); /* Sombra mais escura para destacar no gradiente */
+}
+
+.login-button:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* efeito de "expansão" */
+.login-button::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 100px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+    /* Cor de fundo para o efeito de expansão (usaremos o verde um pouco mais claro) */
+    background-color: #00F560; 
+}
+
+.login-button:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    opacity: 0;
+}
+
+/* Keyframes para a animação de entrada (moveInBottom) */
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* IMAGEM ICONE */
+.image-wrapper {
+    /* O valor negativo deve ser aproximadamente metade do tamanho da sua imagem, 
+       ou ajustado até o logo encostar no elemento de login. */
+    margin-bottom: -175px; /* Puxe para cima, ajuste este valor! */
+    margin-top: -20px;    /* Puxe para cima a partir do topo */
+    
+    /* Zere o gap, pois agora as margens controlam o espaço entre eles */
+    /* Você pode manter o gap no .background-gradient se preferir, 
+       e ajustar o valor negativo até atingir o espaçamento desejado. */
+}
+
+
+/* Garanta que a imagem em si não tenha margens */
+.top-image {
+    width: 220px;
+    height: auto;
+    /* Zere as margens para que o wrapper as controle */
+    margin: 0; 
+    
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.5));
+}
+
+.help-button {
+    /* 1. Posicionamento Fixo */
+    position: fixed;
+    bottom: 30px; 
+    left: 30px; 
+    z-index: 1000; 
+
+    /* 2. Estilo do Botão */
+    width: 90px;
+    height: 90px;
+    border-radius: 50%; 
+    background-color: #ff0000;
+    color: white;
+    text-align: center;
+    line-height: 90px;
+    font-size: 50px;
+    font-weight: 900;
+    text-decoration: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+
+    /* CORREÇÃO AQUI: Transição reduzida para 300ms */
+    transition: all 300ms ease;
+}
+
+.help-button:hover {
+    background-color: #ffffff; 
+    color: rgb(248, 0, 0);
+    transform: scale(1.05);
+}
+
+.help-button:active {
+    /* translateY(1px) para simular o clique (afundar) */
+    transform: translateY(1px); 
+    
+    /* Sombra reduzida para efeito de pressionar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+

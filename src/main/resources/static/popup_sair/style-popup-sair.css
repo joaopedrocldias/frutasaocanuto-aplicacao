@@ -1,0 +1,109 @@
+/* --- 1. OVERLAY (Fundo Escuro e Centralização) --- */
+.popup-overlay {
+    /* Ocupa toda a viewport (tela do usuário) */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    
+    /* Fundo semi-transparente que escurece a página */
+    background: rgba(0, 0, 0, 0.5); 
+    
+    /* CENTRALIZAÇÃO: Flexbox para alinhar a caixa no centro perfeito */
+    display: flex; /* O JS alterna este valor para 'none' para esconder */
+    justify-content: center;
+    align-items: center;
+    
+    /* Garante que o pop-up fique acima de todo o conteúdo da página */
+    z-index: 9999;
+}
+
+/* --- 2. CAIXA PRINCIPAL DO POP-UP --- */
+.popup-box {
+    width: 600px; /* Largura fixa da caixa de diálogo */
+    background: white;
+    border-radius: 15px;
+    box-shadow: 10px 10px 50px 25px rgba(0, 0, 0, 0.25);
+    padding: 30px;
+    
+    /* Layout interno */
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* --- 3. CABEÇALHO E MENSAGEM --- */
+.popup-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 5px;
+}
+
+.icon-warning {
+    width: 45px;
+    height: 45px;
+}
+
+.title-text {
+    font-size: 28px;
+    font-weight: 600;
+    color: black;
+}
+
+.message-body {
+    /* Padding para alinhar o texto da mensagem com o título */
+    padding-left: 60px; 
+}
+
+.message-body p {
+    font-size: 22px;
+    line-height: 1.5;
+    color: #1A1A1A;
+}
+
+.message-body strong {
+    font-weight: 700;
+}
+
+/* --- 4. BOTÕES DE AÇÃO (Cancelar e Sair) --- */
+.action-buttons-popup {
+    display: flex;
+    justify-content: flex-end; /* Alinha os botões à direita */
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.btn-popup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+    width: 200px;
+    height: 70px;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 2px 5px 4px rgba(0, 0, 0, 0.50);
+    cursor: pointer;
+    text-decoration: none; /* Para o botão <a> Sair */
+    
+    color: white;
+    font-size: 22px;
+    font-weight: 600;
+    transition: background 0.2s;
+}
+
+.btn-cancel {
+    background: #FF454D; /* Vermelho */
+}
+
+.btn-confirm {
+    background: #00D379; /* Verde */
+}
+
+.btn-icon {
+    width: 30px;
+    height: 30px;
+}

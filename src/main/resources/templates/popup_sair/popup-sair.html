@@ -1,0 +1,58 @@
+<div class="popup-overlay" id="exit-popup">
+    <div class="popup-box">
+        
+        <div class="popup-header">
+            <img class="icon-warning" src="/popup-sair/img/sino.png" alt="Ícone de Aviso" />
+            <div class="title-text">Deseja realmente sair?</div>
+        </div>
+
+        <div class="message-body">
+            <p>Suas alterações não salvas podem ser perdidas.<br/>Confirme se deseja encerrar <strong>GreenStock</strong></p>
+        </div>
+
+        <div class="action-buttons-popup">
+            
+            <button class="btn-popup btn-cancel" id="btn-cancel">
+                <img src="/popup-sair/img/x.png" alt="Cancelar" class="btn-icon" />
+                Cancelar
+            </button>
+            
+            <a href="/Tela de Login/index.html" class="btn-popup btn-confirm">
+                <img src="/popup-sair/img/certo.png" alt="Sair" class="btn-icon" />
+                Sair
+            </a>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // 1. Seletores
+        const popup = document.getElementById('exit-popup');
+        const sairBtn = document.querySelector('.sair-btn'); // O botão de saída na tela principal
+        const cancelBtn = document.getElementById('btn-cancel');
+
+        // Verificação CRÍTICA: Se o pop-up não existe, paramos.
+        if (!popup) {
+            console.error("Erro: O elemento com id='exit-popup' não foi encontrado. Verifique o HTML.");
+            return;
+        }
+
+        // 2. Ação para Abrir o Pop-up (ao clicar no 'Sair' da nav-bar)
+        if (sairBtn) {
+            sairBtn.addEventListener('click', (e) => {
+                e.preventDefault(); // Bloqueia a navegação padrão do link
+                popup.style.display = 'flex'; // Mostra o pop-up
+            });
+        }
+        
+        // 3. Ação para Fechar o Pop-up (ao clicar em 'Cancelar')
+        if (cancelBtn) {
+            cancelBtn.addEventListener('click', () => {
+                popup.style.display = 'none'; // Esconde o pop-up
+            });
+        }
+        
+        // 4. Inicialização: Garante que o pop-up esteja escondido ao carregar
+        popup.style.display = 'none'; 
+    });
+</script>
